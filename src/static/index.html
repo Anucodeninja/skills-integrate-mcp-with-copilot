@@ -8,6 +8,10 @@
   </head>
   <body>
     <header>
+      <button id="auth-toggle" class="auth-toggle" type="button" aria-label="Teacher sign in" title="Teacher sign in">
+        <span aria-hidden="true">👤</span>
+        <span id="auth-toggle-label">Teacher sign in</span>
+      </button>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
@@ -19,9 +23,10 @@
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
         </div>
+        <p id="teacher-access-message" class="info">Teacher sign-in is required to manage registrations.</p>
       </section>
 
-      <section id="signup-container">
+      <section id="signup-container" class="hidden">
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
@@ -39,6 +44,25 @@
         </form>
         <div id="message" class="hidden"></div>
       </section>
+
+      <dialog id="login-dialog" aria-labelledby="login-title">
+        <form id="login-form">
+          <h3 id="login-title">Teacher sign in</h3>
+          <div class="form-group">
+            <label for="teacher-username">Username</label>
+            <input id="teacher-username" name="username" autocomplete="username" required />
+          </div>
+          <div class="form-group">
+            <label for="teacher-password">Password</label>
+            <input id="teacher-password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <p id="login-error" class="error hidden" role="alert"></p>
+          <div class="dialog-actions">
+            <button type="submit">Sign in</button>
+            <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+          </div>
+        </form>
+      </dialog>
     </main>
 
     <footer>
